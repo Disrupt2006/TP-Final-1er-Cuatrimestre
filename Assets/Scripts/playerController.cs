@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
 {
 
     public float MovementSpeed;
 
+    public GameObject Moneda;
+
+    public Text CoinText;
+
+    AudioSource source;
+    public AudioClip CoinSound;
+    public AudioClip DeathSound;
+   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,9 +44,40 @@ public class playerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            //translate para rotar
-            //transform.Translate(0, MovementSpeed, 0);
             transform.position += new Vector3(0, MovementSpeed, 0);
         }
+
+
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        int contadorMonedas;
+        contadorMonedas = +1;
+
+        if (col.gameObject.name == "Moneda")
+        {
+            Destroy(Moneda);
+
+            if (contadorMonedas == 1)
+            {
+                CoinText.text = contadorMonedas + " moneda";
+            }
+            else
+            {
+                CoinText.text = contadorMonedas + " monedas";
+            }
+
+            source.clip = CoinSound;
+
+        }
+
+        if (col.gameObject.name == "DeathCube")
+        {
+            //gameObject sin mayus hace referencia al mismo objeto
+            Destroy(gameObject);
+            source.clip = DeathSound;
+        }
+    }
+
 }
