@@ -7,20 +7,23 @@ public class playerController : MonoBehaviour
 {
 
     public float MovementSpeed;
+    public float JumpForce;
+
+    bool hasJump;
 
     public GameObject Moneda;
 
-    public Text CoinText;
+    Rigidbody rb;
 
-    AudioSource source;
-    public AudioClip CoinSound;
-    public AudioClip DeathSound;
+    public Text CoinText;
    
 
     // Start is called before the first frame update
     void Start()
     {
-        source = GetComponent<AudioSource>();
+        //source = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();
+        hasJump = true;
     }
 
     // Update is called once per frame
@@ -42,9 +45,11 @@ public class playerController : MonoBehaviour
         {
             transform.position -= new Vector3(0, 0, MovementSpeed);
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && hasJump)
         {
-            transform.position += new Vector3(0, MovementSpeed, 0);
+            rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            hasJump = false;
+            //transform.position += new Vector3(0, MovementSpeed, 0);
         }
 
 
@@ -52,11 +57,16 @@ public class playerController : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        int contadorMonedas;
-        contadorMonedas = +1;
-
-        if (col.gameObject.name == "Moneda")
+        int contadorMonedas = 0;
+       
+        if (col.gameObject.tag == "Ground")
         {
+            hasJump = true;
+        }
+
+        if (col.gameObject.tag == "Coin")
+        {
+            contadorMonedas ++;
             Destroy(Moneda);
 
             if (contadorMonedas == 1)
@@ -68,16 +78,15 @@ public class playerController : MonoBehaviour
                 CoinText.text = contadorMonedas + " monedas";
             }
 
-            source.clip = CoinSound;
 
         }
 
-        if (col.gameObject.name == "DeathCube")
+        if (col.gameObject.tag == "DeathCube")
         {
-            //gameObject sin mayus hace referencia al mismo objeto
-            Destroy(gameObject);
-            source.clip = DeathSound;
-        }
+            Destroy(gameObject, 0.2f);            
+        } 
+
+      
     }
 
 }
