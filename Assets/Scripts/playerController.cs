@@ -1,27 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
 {
 
     public float MovementSpeed;
     public float JumpForce;
-
     bool hasJump;
-
-    public GameObject Moneda;
-
     Rigidbody rb;
-
-    public Text CoinText;
-   
 
     // Start is called before the first frame update
     void Start()
     {
-        //source = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         hasJump = true;
     }
@@ -49,44 +40,18 @@ public class playerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
             hasJump = false;
-            //transform.position += new Vector3(0, MovementSpeed, 0);
         }
 
 
     }
 
+    //pasar a script de jugabilidad
     void OnCollisionEnter(Collision col)
-    {
-        int contadorMonedas = 0;
-       
+    {       
         if (col.gameObject.tag == "Ground")
         {
             hasJump = true;
-        }
-
-        if (col.gameObject.tag == "Coin")
-        {
-            contadorMonedas ++;
-            Destroy(Moneda);
-
-            if (contadorMonedas == 1)
-            {
-                CoinText.text = contadorMonedas + " moneda";
-            }
-            else
-            {
-                CoinText.text = contadorMonedas + " monedas";
-            }
-
-
-        }
-
-        if (col.gameObject.tag == "DeathCube")
-        {
-            Destroy(gameObject, 0.2f);            
-        } 
-
-      
+        }        
     }
 
 }
