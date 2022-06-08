@@ -7,6 +7,8 @@ public class JugabilidadScript : MonoBehaviour
 {
 
     public GameObject Monedaprefab;
+    public GameObject DeathCubePrefab;
+
     public Text CoinText;
 
     int contadorMonedas = 0;
@@ -25,7 +27,7 @@ public class JugabilidadScript : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionStay(Collision col)
     {
 
         if (col.gameObject.tag == "Coin")
@@ -34,10 +36,11 @@ public class JugabilidadScript : MonoBehaviour
 
             Destroy(col.gameObject);
 
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
-            Instantiate(Monedaprefab, randomSpawnPosition, Quaternion.identity);
+            Vector3 randomSpawnPositionCoin = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
+            Instantiate(Monedaprefab, randomSpawnPositionCoin, Quaternion.identity);
 
-         
+            Vector3 randomSpawnPositionDeathCube = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
+            Instantiate(DeathCubePrefab, randomSpawnPositionDeathCube, Quaternion.identity);
 
 
             if (contadorMonedas == 1)
