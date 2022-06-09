@@ -8,6 +8,7 @@ public class JugabilidadScript : MonoBehaviour
 
     public GameObject Monedaprefab;
     public GameObject DeathCubePrefab;
+    public GameObject Confeti;
 
     public Text CoinText;
 
@@ -36,12 +37,23 @@ public class JugabilidadScript : MonoBehaviour
 
             Destroy(col.gameObject);
 
-            Vector3 randomSpawnPositionCoin = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
-            Instantiate(Monedaprefab, randomSpawnPositionCoin, Quaternion.identity);
+            if (contadorMonedas < 10)
+            {
+                Vector3 randomSpawnPositionCoin = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
+                Instantiate(Monedaprefab, randomSpawnPositionCoin, Quaternion.identity);
 
-            Vector3 randomSpawnPositionDeathCube = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
-            Instantiate(DeathCubePrefab, randomSpawnPositionDeathCube, Quaternion.identity);
+                Vector3 randomSpawnPositionDeathCube = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
+                Instantiate(DeathCubePrefab, randomSpawnPositionDeathCube, Quaternion.identity);
+            }
 
+           else
+            {
+                Destroy(gameObject);
+                for (int i = 0; i <= 100; i++)
+                {
+                    Instantiate (Confeti);
+                }
+            }
 
             if (contadorMonedas == 1)
             {
@@ -51,6 +63,8 @@ public class JugabilidadScript : MonoBehaviour
             {
                 CoinText.text = contadorMonedas + " monedas";
             }
+
+            
 
 
         }

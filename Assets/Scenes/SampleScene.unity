@@ -231,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f49771b3afa3cf34295235735e9721cb, type: 2}
+  - {fileID: 2100000, guid: 99fb10c3985147f4ab82ff8f8fc40865, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -559,7 +559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f49771b3afa3cf34295235735e9721cb, type: 2}
+  - {fileID: 2100000, guid: 99fb10c3985147f4ab82ff8f8fc40865, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1021,7 +1021,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f49771b3afa3cf34295235735e9721cb, type: 2}
+  - {fileID: 2100000, guid: 99fb10c3985147f4ab82ff8f8fc40865, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1284,7 +1284,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f49771b3afa3cf34295235735e9721cb, type: 2}
+  - {fileID: 2100000, guid: 99fb10c3985147f4ab82ff8f8fc40865, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1593,6 +1593,7 @@ MonoBehaviour:
     type: 3}
   DeathCubePrefab: {fileID: 8367921382455242486, guid: b6462abe5bd7803409fd68676bb98f9d,
     type: 3}
+  Confeti: {fileID: 508624589940337798, guid: b5015c76d5fe0fe49a25a87d195e03f1, type: 3}
   CoinText: {fileID: 557533050}
 --- !u!1001 &8367921384334430331
 PrefabInstance:
