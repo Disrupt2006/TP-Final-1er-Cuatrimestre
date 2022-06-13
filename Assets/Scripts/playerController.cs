@@ -6,15 +6,12 @@ public class playerController : MonoBehaviour
 {
 
     public float MovementSpeed;
-    public float JumpForce;
-    bool hasJump;
-    Rigidbody rb;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        hasJump = true;
+
     }
 
     // Update is called once per frame

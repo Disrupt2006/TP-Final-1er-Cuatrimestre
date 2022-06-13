@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeathCubeMovement : MonoBehaviour
 {
 
+
     public float SpeedDeathCube;
 
     bool toUp;
@@ -28,14 +29,13 @@ public class DeathCubeMovement : MonoBehaviour
             transform.position -= new Vector3(0, 0, SpeedDeathCube);
         }
 
-        if (transform.position.z > 8)
+        if (transform.position.z > 9)
         {
             toUp = false;
         }
-        if (transform.position.z < -8)
+        if (transform.position.z < -9)
         {
             toUp = true;
         }
-
     }
 }
