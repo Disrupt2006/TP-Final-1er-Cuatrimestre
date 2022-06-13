@@ -36,22 +36,9 @@ public class playerController : MonoBehaviour
         {
             transform.position -= new Vector3(0, 0, MovementSpeed);
         }
-        if (Input.GetKey(KeyCode.Space) && hasJump)
-        {
-            rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
-            hasJump = false;
-        }
+        
 
 
-    }
-
-    //pasar a script de jugabilidad
-    void OnCollisionEnter(Collision col)
-    {       
-        if (col.gameObject.tag == "Ground")
-        {
-            hasJump = true;
-        }        
     }
 
 }
