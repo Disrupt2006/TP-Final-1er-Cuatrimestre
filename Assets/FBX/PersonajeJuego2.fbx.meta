@@ -1,27 +1,21 @@
 fileFormatVersion: 2
-guid: 3cc57aa8a88539548aaa187937df07b8
+guid: d4a30ee134eedc74687529b2da73bb4f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: PaletaColores.007
-    2100002: PaletaColores
-    2100004: PaletaColores.001
-    2100006: PaletaColores.003
-    2100008: PaletaColores.005
-    2100010: PaletaColores.004
-    2100012: PaletaColores.006
+    2100000: PaletaColores.016
+    2100002: PaletaColores.014
+    2100004: PaletaColores.013
+    2100006: PaletaColores.012
+    2100008: PaletaColores.011
+    2100010: PaletaColores.010
+    2100012: PaletaColores
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Ovni
-    2186277476908879412: ImportLogs
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: PaletaColores
-    second: {fileID: 2800000, guid: b847d8142d4d3f448a88dbeb750ada81, type: 3}
+    4300000: OvniJunto
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

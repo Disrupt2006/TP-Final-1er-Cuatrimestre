@@ -21,8 +21,9 @@ public class JugabilidadScript : MonoBehaviour
     void Start()
     {
         Vector3 randomSpawnPosition = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
-        Instantiate(Monedaprefab, randomSpawnPosition, Quaternion.identity);
-
+        GameObject clonMoneda = Instantiate(Monedaprefab, randomSpawnPosition, Quaternion.identity);
+        clonMoneda.transform.Rotate(-90, -180, 0);
+        clonMoneda.transform.position -= new Vector3(0, 0.3f, 0);
     }
 
     // Update is called once per frame
@@ -43,7 +44,9 @@ public class JugabilidadScript : MonoBehaviour
             if (contadorMonedas < 10)
             {
                 Vector3 randomSpawnPositionCoin = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
-                Instantiate(Monedaprefab, randomSpawnPositionCoin, Quaternion.identity);
+                GameObject clonMoneda = Instantiate(Monedaprefab, randomSpawnPositionCoin, Quaternion.identity);
+                clonMoneda.transform.Rotate(-90, -180, 0);
+                clonMoneda.transform.position -= new Vector3(0, 0.5f, 0);
 
                 Vector3 randomSpawnPositionDeathCube = new Vector3(Random.Range(-9, 10), 0.8f, Random.Range(-9, 10));
                 DeathCubePrefab = Instantiate(DeathCubePrefab, randomSpawnPositionDeathCube, Quaternion.identity);
